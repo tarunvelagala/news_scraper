@@ -1,12 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>news_scraper</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
+
 <body>
-{% for i in content %}
-        <h1>{{ i }}</h1>
+{% for t,h in contents %}
+<div class="row justify-content-center align-items-center"
+     style="/*top:25%;*//*align-self:center;*/font-family:Roboto, sans-serif;margin: 20px auto 0;">
+    <div class="col-md-4" style="/*align-content:center;*/"><span class="text-uppercase" style="/*align-self:center;*/padding-right: 25px;">{{ t }}</span>
+    </div>
+    <div class="col">
+        <h1>{{ h }}</h1>
+    </div>
+</div>
 {% endfor %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

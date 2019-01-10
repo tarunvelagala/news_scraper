@@ -1,4 +1,5 @@
 from urllib.parse import urlparse
+
 import requests
 from bs4 import BeautifulSoup
 from selenium import webdriver
@@ -37,7 +38,7 @@ soup_obj = BeautifulSoup(driver.page_source, 'lxml')
 lst_items = soup_obj.find("div", {"class": "latestScrollItems"})
 # print(lst_items)
 
-# time = lst_items.find_all("span", {'class': 'col-1'})[0:6]
+time = lst_items.find_all("span", {'class': 'col-1'})[0:6]
 
 # headline_div = lst_items.find_all('div', {'class': 'col-4'})
 # print(headline_div)
@@ -54,10 +55,13 @@ paragraph = lst_items.find_all('p')[0:6]
 # print(img)
 
 # filter the outputs
-# time_filtered = [i.span.text for i in time]
+time_filtered = [i.span.text for i in time]
 headline_filtered = [i.text for i in headline]
 # paragraph_filtered = [p.text for p in paragraph]
 headline_links_filtered = [url_rel + i for i in headline_links]
+
+contents_list = list(zip(time_filtered, headline_filtered))
+# print(contents_list)
 """
 print('-' * 80)
 print('\n'.join(time_filtered))
